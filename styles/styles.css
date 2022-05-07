@@ -1,6 +1,85 @@
-.spec
- {display: inline-block;
-    width: 270px;
 
+   body {font-family: 'Raleway', sans-serif;
+      font-family: 'Roboto', sans-serif; }  
+   
+   .logo-web{font-family: 'Raleway';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 31px;
+      /* identical to box height */
+      
+      letter-spacing: 0.03em;
+      
+      color: #2196F3;
+      }
 
- }
+      .logo-studio{font-family: 'Raleway';
+         font-style: normal;
+         font-weight: 700;
+         font-size: 26px;
+         line-height: 31px;
+         /* identical to box height */
+         
+         letter-spacing: 0.03em;
+         
+         color: #000000;
+         }
+   
+      .logo {font-family: 'Raleway';
+         font-style: normal;
+         font-weight: 700;
+         font-size: 26px;
+         line-height: 31px;
+         text-decoration: none;
+         
+         letter-spacing: 0.03em;}   
+   
+   .top-line { display: flex;
+    
+    width: 1600px;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    margin-bottom: 100px;
+  }
+   
+   .top-link {
+      display: flex;
+      
+   }
+
+  .top-navi {position: absolute;
+   width: 294px;
+   height: 16px;
+   left: 453px;
+   top: 32px;
+   display: inline-block;
+   }
+
+   .top-studio {      
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.02em;
+      text-decoration: none;      
+      color: #2196F3;
+      }
+
+   .top-portocon {width: 68px;
+      height: 16px;
+      left: 679px;
+      top: 32px;
+      padding-left: 30px;
+      
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.02em;
+      text-decoration: none;      
+      color: #212121;    
+     }   
