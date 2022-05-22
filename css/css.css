@@ -1,0 +1,155 @@
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: var(--font-color);
+	/* background-color: var(--background-color) ; */
+}
+
+
+ :root {
+ 	--white: #ffffff;
+ 	--black: #000000;
+ 	--font-color: #212121;
+ 	/*var(--font-color)*/
+ 	--accent-color: #2196F3;
+ 	/*var(--accent-color)*/
+ 	--footer-color: #2F303A;
+ 	/*var(--footer-color)*/
+ 	--background-color: #e5e5e5;
+ 	/*var(--background-color)*/
+ 	--team-bcgr-clr: #F5F4FA;
+ 	--link-color: #757575;
+ 	/*var(--link-color)*/
+ 	--hero-color: #2F303A;
+ 	/*var(--hero-color)*/
+	 --icon-color: #AFB1B8;
+ 	--button-icon-nonactiv-color: #F5F4FA;
+ 	--header-border-clr: #ECECEC;
+ 	--portfolio-border-clr: #EEEEEE;
+ 	--footer-link-color: rgba(255, 255, 255, 0.6)
+ 		/*var(--footer-link-color)*/
+ }
+
+ h1,
+ h2,
+ h3,
+ ul,
+ p {
+ 	margin: 0;
+ 	padding: 0;
+ 	/* !!!!!   ЭТО НАДО ИЛИ НЕТ?   !!!!!*/
+ 	list-style-type: none;
+ }
+
+ a {
+ 	text-decoration: none;
+ }
+
+ul {list-style-type: none;}
+
+
+.header-link-mail {
+	display: inline-flex;
+	margin-left: 305px;
+	padding-top: 32px;
+	padding-bottom: 32px;
+
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 1.14;
+	letter-spacing: 0.02em;
+	color: var(--link-color);
+}
+
+.icon {
+	align-self: center;
+	margin-right: 10px;
+	fill: currentColor;
+}
+
+.icon:hover {
+	fill: currentColor;
+}
+
+.header-link-mail:hover,
+.header-link-mail:focus {
+	color: var(--accent-color);
+	fill: var(--accent-color);
+}
+
+
+
+.header-link-tel {
+	display: inline-flex;
+	margin-left: 30px;
+	padding-top: 32px;
+	padding-bottom: 32px;
+
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 1.14;
+	letter-spacing: 0.02em;
+	color: var(--link-color);
+}
+
+.header-link-tel:hover,
+.header-link-tel:focus {
+	color: var(--accent-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.team-net {
+	display: flex;
+	padding-top: 16px;
+	padding-bottom: 30px;
+	justify-content: center;
+	/* padding: 16px 0 30px; */
+}
+
+
+.team-net>li+li {
+	margin-left: 10px;
+}
+
+.t-icon-box {
+	/* display: flex; */
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	/* background-color: #ECECEC; */
+
+	/* justify-content: center; */
+	/* align-items: center; */
+	outline: 1px solid tomato;
+}
+
+.t-icon-box:hover {
+	background-color: var(--accent-color);
+	/* fill: #ffffff; */
+}
+
+.t-icon {
+	fill: var(--icon-color);
+	padding: 12px;
+	/* fill: currentColor; */
+}
+
+.t-icon:hover {
+	fill: #fff;
+}

@@ -348,6 +348,57 @@ header {
 	color: var(--link-color);
 }
 
+.team-net {
+	display: flex;
+	padding-top: 16px;
+	padding-bottom: 30px;
+	justify-content: center;
+	/* padding: 16px 0 30px; */
+}
+
+
+.team-net>li+li {
+	margin-left: 10px;
+}
+
+.t-icon-box {
+	display: flex;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	/* background-color: #ECECEC; */
+
+	justify-content: center;
+	align-items: center;
+	outline: 1px solid tomato;
+}
+
+.t-icon-box:hover {
+	background-color: var(--accent-color);
+	fill: #ffffff;
+}
+
+.t-icon {
+	fill: var(--icon-color);
+}
+
+.t-icon:hover {
+	fill: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .footer {
 	background-color: var(--footer-color);
  padding: 60px 0;
