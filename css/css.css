@@ -22,8 +22,8 @@ body {
  	/*var(--link-color)*/
  	--hero-color: #2F303A;
  	/*var(--hero-color)*/
-	 --icon-color: #AFB1B8;
- 	--button-icon-nonactiv-color: #F5F4FA;
+	 --ico-color: #AFB1B8;
+ 	--button-ico-nonactiv-color: #F5F4FA;
  	--header-border-clr: #ECECEC;
  	--portfolio-border-clr: #EEEEEE;
  	--footer-link-color: rgba(255, 255, 255, 0.6)
@@ -61,13 +61,13 @@ ul {list-style-type: none;}
 	color: var(--link-color);
 }
 
-.icon {
+.ico {
 	align-self: center;
 	margin-right: 10px;
 	fill: currentColor;
 }
 
-.icon:hover {
+.ico:hover {
 	fill: currentColor;
 }
 
@@ -127,29 +127,26 @@ ul {list-style-type: none;}
 	margin-left: 10px;
 }
 
-.t-icon-box {
+.t-ico-box {
 	/* display: flex; */
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	/* background-color: #ECECEC; */
 
-	/* justify-content: center; */
-	/* align-items: center; */
 	outline: 1px solid tomato;
 }
 
-.t-icon-box:hover {
+.t-ico-box:hover {
 	background-color: var(--accent-color);
-	/* fill: #ffffff; */
+	
 }
 
-.t-icon {
-	fill: var(--icon-color);
+.t-ico {
+	fill: var(--ico-color);
 	padding: 12px;
-	/* fill: currentColor; */
+	
 }
 
-.t-icon:hover {
+.t-ico:hover {
 	fill: #fff;
 }
