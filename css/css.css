@@ -101,9 +101,31 @@ ul {list-style-type: none;}
 
 
 
+.box {
+	display: flex;
+}
 
+.box-item {
+ /* height: 50px; */
+ width: 270px;
+ outline: 1px solid gray;
+}
 
+.box-sign {
+	padding: 30px 0;
+}
+.box-sign h3 {
+	text-align: center;
+}
 
+.box-sign p {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.box-item + .box-item {
+	margin-left: 50px;
+}
 
 
 
@@ -116,8 +138,7 @@ ul {list-style-type: none;}
 
 .team-net {
 	display: flex;
-	padding-top: 16px;
-	padding-bottom: 30px;
+  margin-top: 16px;
 	justify-content: center;
 	/* padding: 16px 0 30px; */
 }
@@ -136,7 +157,8 @@ ul {list-style-type: none;}
 	outline: 1px solid tomato;
 }
 
-.t-ico-box:hover {
+.t-ico-box:hover,
+.t-ico-box:focus {
 	background-color: var(--accent-color);
 	
 }
@@ -147,6 +169,7 @@ ul {list-style-type: none;}
 	
 }
 
-.t-ico:hover {
+.t-ico:hover,
+.t-ico:focus {
 	fill: #fff;
 }
