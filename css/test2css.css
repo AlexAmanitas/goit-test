@@ -54,7 +54,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 1200px;
+	width: 100vh;
 	height: 100px;
 	background-image: repeating-linear-gradient( 135deg,
 		#0101fd,
