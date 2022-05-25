@@ -46,8 +46,8 @@ body {
 .gradient-box {
 	position: relative;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-		font-style: unset;
-		font-size: 45px;
+		font-style: normal;
+		font-size: 35px;
 		color: #212121;
 	margin-top: 200px;
 	margin-left: auto;
