@@ -1,0 +1,88 @@
+
+body {
+	/* width: 1200px; */
+	
+		background-image: radial-gradient( at top left, yellow 17%, blue);
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	/* display: flex; */
+	/* align-items: center;
+	justify-content: center; */
+}
+
+.box {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: #ff0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	background-color: #0101fd;
+	box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+		0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+	/*  We set the transition values.  */
+	transition: background-color 10s linear, transform 10s ease-out;
+}
+
+/* When hovering, we change the values of the animated properties. */
+.box:hover {
+	background-color: #ff0;
+	transform: rotate(90000deg);
+}
+
+
+
+
+.gradient-box {
+	position: relative;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+		font-style: unset;
+		font-size: 45px;
+		color: #212121;
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1200px;
+	height: 100px;
+	background-image: repeating-linear-gradient( 135deg,
+		#0101fd,
+		#0101fd 20px,
+		#ff0 20px,
+		#ff0 40px
+				/* Опеределяет размер градиента */
+			);
+ box-shadow: 0 -20px 20px -5px #fff, 0 20px 20px -5px #fff, -20px 0 20px -5px #fff, 20px 0 20px -5px #fff;			
+		text-decoration: none;
+}
+
+.gradient-box:hover {
+	color: #0101fd;
+	box-shadow: 0 -20px 20px -5px #000, 0 20px 20px -5px #000, -20px 0 20px -5px #000, 20px 0 20px -5px #000;
+		background-image: repeating-linear-gradient(45deg,
+					#0101fd,
+					#0101fd 20px,
+					#ff0 20px,
+					#ff0 40px
+					/* Опеределяет размер градиента */
+				);
+}
+
+.title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #000;
+	font-size: 10px;
+}
