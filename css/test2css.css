@@ -14,12 +14,33 @@ body {
 	justify-content: center; */
 }
 
+.box1::before {
+	position: absolute;
+	display: inline-block;
+	content:"Lorem ipsum dolor, sit amet consectetur adipisicingikduirkffkdkcmvnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnnnnnnnn nnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnggggggggggggggg ggggggggggggggggggggggggggg ggggggggggggtt tttttttttttttttttttttttttt tttttttttttttttttttt ttttttttttttdddddddd dddddddddddd dddddddddddddddd ddddddddddddddd ddddddfuyfufiojpkppopjy  f76 78 y9uu8uugtdyruyo yppjiouttf elit. Alias error optio dolore, dolores ratione harum qui obcaecati quisquam nulla vero quasi sunt tempora voluptates soluta magnam eum ipsam vitae quosLorem ipsum dolor, sit amet consectetur adipisicing elit. Alias error optio dolore, dolores ratione harum qui obcaecati quisquam nulla vero quasi sunt tempora voluptates soluta magnam eum ipsam vitae quosfhhjjfyldfoldkddoddpdpds[d[   oddodpdppekidjs weiw9erjwr0owpfokp9ue9wewaacoos wrew09e[qKDPOSAC09SDDWJDS9-0 -00ww-ir-r0 r=-er[e0rtt-4wy[ky-it-eir-3qktwytwit-ww-3i -tii -tk -it-3t3kt-94wt6.";
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	opacity: 0;
+}
+
+.box1 {
+	/* display:inline-block */
+	position: relative;
+	width: 370px;
+	margin: 50px;
+}
+.box1:hover::before {
+	opacity: 1;
+}
+
+
 .box {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	color: #ff0;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+align-items: center;
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 50px;
@@ -39,6 +60,7 @@ body {
 	background-color: #ff0;
 	transform: rotate(500turn);
 }
+
 
 
 
