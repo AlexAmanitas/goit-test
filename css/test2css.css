@@ -26,16 +26,31 @@ body {
 
 .box1 {
 	/* display:inline-block */
+animation-name: changeBgColor;
+	animation-duration: 3000ms;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+		transform-origin: bottom right;
 	position: relative;
-	width: 370px;
+	background-color: #fff;
+	width: 200px;
+	height: 200px;
 	margin: 50px;
+	border-radius: 10px;
 }
-.box1:hover::before {
+
+.box1:hover {
+	
+}
+
+/* .box1:hover::before {
+
 	opacity: 1;
-}
+} */
 
 
 .box {
+	
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	color: #ff0;
 	display: flex;
@@ -53,12 +68,37 @@ align-items: center;
 
 	/*  We set the transition values.  */
 	transition: background-color 10s linear, transform 10s ease-out;
+		transform-origin: top right;
 }
 
 /* When hovering, we change the values of the animated properties. */
 .box:hover {
 	background-color: #ff0;
 	transform: rotate(500turn);
+	transform-origin: center right;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+input {
+  padding: 8px;
+  font-family: inherit;
+}
+
+button {
+	margin-left: 30px;
+	margin-top: 15px;
+}
+
+label {
+	margin-left: 30px;
+	width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
 }
 
 
@@ -108,4 +148,21 @@ align-items: center;
 	left: 0;
 	color: #000;
 	font-size: 10px;
+}
+
+@keyframes changeBgColor {
+  0% {
+    background-color: teal;
+		transform: rotate(0deg);
+  }
+
+  50% {
+    background-color: orange;
+		/* transform: rotate(240deg); */
+  }
+
+  100% {
+    background-color: deepskyblue;
+		transform: rotate(720deg);
+  }
 }
