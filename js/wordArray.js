@@ -5,19 +5,27 @@ function duplicateEncode(word) {
 	let length = word.length;
 	console.log(word.length);
 	let wordArray = word.split("");
-	console.log(wordArray, length);
+	console.log(wordArray);
+	let wordArray1 = wordArray;
+
 	for (let k = 0; k < length; k += 1) {
-		console.log(k);
-		for (let i = k; i < length; i += 1) {
+		console.log(`k= ${k}`);
+
+		for (let i = 0; i < length; i += 1) {
+			console.log(`i= ${i}`);
+			console.log(`arrayk= ${wordArray[k]}`);
+			console.log(`arrayi= ${wordArray[i]}`);
+			if (i === k) {
+				continue;
+			}
+			wordArray1[k] = "(";
 			if (wordArray[k] === wordArray[i]) {
-				wordArray[k] = ")";
-				console.log wordArray[k];
-			} else {
-				wordArray[k] = "(";
+				wordArray1[k] = ")";
+				// console.log(wordArray[k]);
 			}
 		}
 	}
-	return wordArray.toString();
+	return wordArray1.toString();
 	// сравнить первую букву со всеми, если есть совпадение, то )
 	//иначе (
 	//
@@ -26,4 +34,4 @@ function duplicateEncode(word) {
 	// каждый раз складывать строку из ( и )
 }
 
-console.log(duplicateEncode("din"));
+console.log(duplicateEncode("diin"));
