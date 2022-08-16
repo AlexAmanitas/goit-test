@@ -299,7 +299,7 @@ function friend(friends) {
 //   console.log(arr);
 //   const reverseArray = [];
 //   for (const word of arr) {
-//     reverseArray.push(word.split('').reverse().join(''));
+//     reverseArray.push(word.split('').r    neverse().join(''));
 //   }
 //   return reverseArray.join(' ');
 // }
@@ -314,3 +314,17 @@ function reverseWords(str) {
 }
 
 console.log(reverseWords('The quick brown fox jumps over the lazy dog.'));
+
+const dfrt = 'fredy';
+const sjy = 5;
+
+const object = {
+  name: 'super object',
+  [dfrt]: 58,
+  changeName(newName) {
+    this.name = newName;
+  },
+};
+object.jt = 359;
+object.changeName('fduerl');
+console.log(object);
