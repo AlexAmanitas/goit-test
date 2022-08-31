@@ -1045,18 +1045,18 @@ longest('aretheyhere', 'yestheyarehere');
 const sendMessage = message => {
   console.log(message);
   const phone = new Map([
-    ['1', ['.', ',', '?', '!']],
-    ['2', ['a', 'b', 'c']],
-    ['3', ['d', 'e', 'f']],
-    ['4', ['g', 'h', 'i']],
-    ['5', ['j', 'k', 'l']],
-    ['6', ['m', 'n', 'o']],
-    ['7', ['p', 'q', 'r', 's']],
-    ['8', ['t', 'u', 'v']],
-    ['9', ['w', 'x', 'y', 'z']],
-    ['*', ["'", '-', '+', '=']],
-    ['0', [' ']],
-    // ['#', []],
+    ['1', ['1', '.', ',', '?', '!']],
+    ['2', ['2', 'a', 'b', 'c']],
+    ['3', ['3', 'd', 'e', 'f']],
+    ['4', ['4', 'g', 'h', 'i']],
+    ['5', ['5', 'j', 'k', 'l']],
+    ['6', ['6', 'm', 'n', 'o']],
+    ['7', ['7', 'p', 'q', 'r', 's']],
+    ['8', ['8', 't', 'u', 'v']],
+    ['9', ['9', 'w', 'x', 'y', 'z']],
+    ['*', ['', "'", '-', '+', '=', '*']],
+    ['0', ['0', ' ']],
+    ['#', ['#']],
   ]);
 
   const letterrArr = [];
@@ -1066,12 +1066,10 @@ const sendMessage = message => {
     .split('')
     .map(x => {
       phone.forEach((value, key) => {
-        // console.log('key', key, 'value', value);
-
         if (value.includes(x)) {
           letterrArr.push(key);
-          repeatArr.push(value.indexOf(x) + 1);
-          console.log('//////////////', key, value.indexOf(x) + 1);
+          repeatArr.push(value.indexOf(x));
+          console.log('//////////////', key, value.indexOf(x));
           return letterrArr, repeatArr;
         }
       });
@@ -1079,12 +1077,39 @@ const sendMessage = message => {
   let message1 = '';
   console.log(letterrArr, repeatArr);
   message.split('').map((str, ind) => {
-    if (str.toLowerCase() !== str) {
+    console.log(message[ind]);
+    if (str === '*') {
+      message1 += `${str}-`;
+    } else if (str === '#') {
+      message1 += `${str}-`;
+    } else if (!Number.isNaN(Number.parseInt(str))) {
+      message1 += `${str}-`;
+    } else if (letterrArr[ind] === letterrArr[ind + 1]) {
+      message1 += `${letterrArr[ind].repeat(repeatArr[ind])} `;
+    } else if (
+      letterrArr[ind] === letterrArr[ind + 1] &&
+      str.toUpperCase() === str
+    ) {
+      message1 += `#${letterrArr[ind].repeat(repeatArr[ind])}#`;
+    } else if (str.toLowerCase() !== str) {
       message1 += `#${letterrArr[ind].repeat(repeatArr[ind])}#`;
     } else {
       message1 += `${letterrArr[ind].repeat(repeatArr[ind])}`;
     }
   });
+  // message1 = message1.replace(/- /g, '-');
+  message1 = message1.replace(/- /g, '-');
+  message1 = message1.replace('#**', '**#');
+  message1 = message1.replace(/##/g, '');
+  message1 = message1.replace('#0', '0#');
+  if (message1.endsWith('#')) {
+    message1 = message1.slice(0, -1);
+  }
   return message1;
 };
-console.log(sendMessage('one two three'));
+// console.log(sendMessage('one1 two three'));
+console.log(sendMessage('Def Con 1!'));
+// '#3#33 3330#222#666 6601-1111';
+console.log(sendMessage('D=b*b-4*a*c'));
+console.log(sendMessage('     '));
+console.log(!Number.isNaN(Number.parseInt('0')));
