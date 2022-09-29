@@ -2070,38 +2070,196 @@ DocumentParser.prototype.parse = function () {};
 // Желаем приятно провести время!
 // (Результаты округлять не нужно)
 
-function rolldiceSumProb(sum, dice) {
-  var prob;
-  const diceArrow = [[]];
-  for (let i = 0; i < dice; i += 1) {
-    diceArrow[i] = i;
-    for (let j = 1; j <= 6 ** dice; j += 1) {
-      const arr = [...Array(dice)];
-      arr[i] = j;
-      diceArrow.push(arr);
+///////////////////////////////////                  ////////////////////////////          //////////////////////////
+// function main() {
+//   const c_int_side_dice = 6; // сколько граней у кубика
+//   const c_int_dice_number = 6; // кол-во кубиков
+//   const c_int_number_to_find = 18; // число, вероятность выпадения которого хотим найти
+//   let probability = dice_probability(
+//     c_int_dice_number,
+//     c_int_number_to_find,
+//     c_int_side_dice
+//   );
+//   console.log(probability);
+// }
+
+// // собственно поиск вероятности определённого значения
+// function dice_probability(
+//   int_dice_number,
+//   int_number_to_find,
+//   c_int_side_dice
+// ) {
+//   let lists_val_and_prob = list_values_and_interm_probabilities(
+//     int_dice_number,
+//     c_int_side_dice
+//   );
+//   let result_out;
+//   if (
+//     int_number_to_find < lists_val_and_prob[0][0] ||
+//     int_number_to_find > lists_val_and_prob[0][lists_val_and_prob[0].length - 1]
+//   ) {
+//     // задаваемое число выходит за рамки реально возможного диапазона значений
+//     result_out = 0.0;
+//   } else {
+//     for (let i = 0; i < lists_val_and_prob[0].length; i++) {
+//       if (lists_val_and_prob[0][i] == int_number_to_find) {
+//         result_out =
+//           lists_val_and_prob[1][i] / Math.pow(c_int_side_dice, int_dice_number);
+//         break;
+//       }
+//     }
+//   }
+//   return result_out;
+// }
+
+// // возвращает списки/массивы: значения (сумма выпавших всех значений кубиков), сколько раз встречается значение
+// function list_values_and_interm_probabilities(
+//   int_dice_number,
+//   c_int_side_dice
+// ) {
+//   // [кол-во кубиков], [сколько граней у кубика]
+//   let list_values = new Array();
+//   let i = 0;
+//   for (let j = int_dice_number; j <= c_int_side_dice * int_dice_number; j++) {
+//     list_values[i] = j;
+//     i++;
+//   }
+//   console.log(list_values);
+//   let list_interm_probability = Array(c_int_side_dice).fill(1); // [1, 1, 1, 1, 1, 1]
+//   for (let i = 0; i < int_dice_number - 1; i++) {
+//     list_interm_probability = multiply_by_ones(
+//       list_interm_probability,
+//       c_int_side_dice
+//     );
+//   }
+//   console.log(list_interm_probability);
+//   return [list_values, list_interm_probability];
+// }
+
+// // "умножение" на единицы
+// function multiply_by_ones(list_in, c_int_side_dice) {
+//   let list_dummy = new Array(c_int_side_dice);
+//   for (let j = 0; j < c_int_side_dice; j++) {
+//     list_dummy[j] = Array(j).fill(0);
+//   }
+//   let list_for_sum = new Array(c_int_side_dice);
+//   for (let j = 0; j < c_int_side_dice; j++) {
+//     list_for_sum[j] = list_dummy[j].concat(
+//       list_in,
+//       list_dummy[c_int_side_dice - j - 1]
+//     );
+//   }
+//   // [list_in, 0, 0, 0, 0, 0]
+//   // [0, list_in, 0, 0, 0, 0]
+//   // [0, 0, list_in, 0, 0, 0]
+//   // [0, 0, 0, list_in, 0, 0]
+//   // [0, 0, 0, 0, list_in, 0]
+//   // [0, 0, 0, 0, 0, list_in]
+
+//   let list_out = new Array();
+//   for (let i = 0; i < list_for_sum[0].length; i++) {
+//     let sum_out = 0;
+//     for (let j = 0; j < c_int_side_dice; j++) {
+//       sum_out += list_for_sum[j][i];
+//     }
+//     list_out[i] = sum_out;
+//   }
+//   // [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]
+//   return list_out;
+// }
+
+// main();
+
+//////////  нахождение делимого вероятности выпадения при помощи многократной свёртки последовательности [1 1 1 1 1 1] на саму себя  \\\\\\\\\\\\\\\\
+// function main() {
+//   // const6 = 6; // сколько граней у кубика
+//   const c_dice = 3; // кол-во кубиков
+//   const c_sum = 11; // число, вероятность выпадения которого хотим найти
+//   let probability = dice_probability(c_dice, c_sum);
+//   console.log(probability);
+// }
+// собственно поиск вероятности определённого значения
+// function rolldiceSumProby(sum, dice) {
+//   let valueLists = valueList(dice);
+//   let result;
+//   if (sum < valueLists[0][0] || sum > valueLists[0][valueLists[0].length - 1]) {
+//     // задаваемое число выходит за рамки реально возможного диапазона значений
+//     result = 0.0;
+//   } else {
+//     for (let i = 0; i < valueLists[0].length; i++) {
+//       if (valueLists[0][i] == sum) {
+//         result = valueLists[1][i] / 6 ** dice;
+//         break;
+//       }
+//     }
+//   }
+//   function valueList(dice) {
+//     let listOfValues = new Array();
+//     let i = 0;
+//     for (let j = dice; j <= 6 * dice; j++) {
+//       listOfValues[i] = j;
+//       i++;
+//     }
+//     console.log(listOfValues);
+//     let possibleSumList = Array(6).fill(1); // [1, 1, 1, 1, 1, 1]
+//     for (let i = 0; i < dice - 1; i++) {
+//       possibleSumList = multiplyByOnes(possibleSumList);
+//     }
+//     console.log(possibleSumList);
+//     return [listOfValues, possibleSumList];
+//   }
+//   function multiplyByOnes(listIn) {
+//     let arr = new Array(6);
+//     // console.log(arr);
+//     for (let j = 0; j < 6; j++) {
+//       arr[j] = Array(j).fill(0);
+//     }
+//     let listForSum = new Array(6);
+//     for (let j = 0; j < 6; j++) {
+//       listForSum[j] = arr[j].concat(listIn, arr[6 - j - 1]);
+//     }
+//     console.log(listForSum);
+//     // [listIn, 0, 0, 0, 0, 0]
+//     // [0, listIn, 0, 0, 0, 0]
+//     // [0, 0, listIn, 0, 0, 0]
+//     // [0, 0, 0, listIn, 0, 0]
+//     // [0, 0, 0, 0, listIn, 0]
+//     // [0, 0, 0, 0, 0, listIn]
+
+//     let listOut = new Array();
+//     for (let i = 0; i < listForSum[0].length; i++) {
+//       let sumOut = 0;
+//       for (let j = 0; j < 6; j++) {
+//         sumOut += listForSum[j][i];
+//       }
+//       listOut[i] = sumOut;
+//     }
+//     // [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1]
+//     return listOut;
+//   }
+
+//   return result;
+// }
+
+//////////////////////  codewars  \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// function rolldiceSumProb(arr, totalSides) {
+//   if (arr < totalSides || arr > totalSides * 6) return 0;
+//   if (totalSides === 0) return 1;
+//   let p = 0;
+//   for (let i = 1; i <= 6; i++) p += rolldiceSumProb(arr - i, totalSides - 1);
+//   return p / 6;
+// }
+
+//////////////////    \\\\\\\\\\\\\\\\\\\\\\\\\
+function rolldiceSumProb(n, dices) {
+  let combinations = 0;
+  function recur(lvl = 1, sum = 0) {
+    for (let i = 1; i <= 6; i++) {
+      if (lvl < dices) recur(lvl + 1, sum + i);
+      else if (sum + i === n) combinations++;
     }
-
-    // diceArrow[arr[i]] = 7;
   }
-
-  return diceArrow;
+  recur();
+  return combinations / 6 ** dices;
 }
-
 console.log(rolldiceSumProb(7, 2));
-// console.log([...Array(6)].map((_, index) => index + 1));
-// const ghy = [
-//   [1, 1],
-//   [1, 2],
-//   [1, 3],
-//   [1, 4],
-//   [1, 5],
-//   [1, 6],
-//   [2, 1],
-//   [2, 2],
-//   [2, 3],
-//   [2, 4],
-//   [2, 5],
-//   [2, 6],
-// ];
-const ghy = [[5, 4, 3]];
-// console.log(ghy);
