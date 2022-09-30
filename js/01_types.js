@@ -87,3 +87,9 @@ for (let i = 0; i < 10; i++) {
 // }
 
 // console.log('✅ This is fine, we handled parse error in try...catch');
+function fetchCountries(name) {
+  const countries = fetch(`https://restcountries.com/v2/name/${name}`);
+  console.log(countries);
+}
+
+console.log(fetchCountries('ukr').then());
